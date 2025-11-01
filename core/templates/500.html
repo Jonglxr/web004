@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Página no encontrada{% endblock %}
+{% block title %}Error del servidor{% endblock %}
 
 {% block content %}
 <div class="error-page text-center py-5" data-aos="fade-up">
     <div class="error-content">
-        <h1 class="display-1 text-primary mb-4">404</h1>
+        <h1 class="display-1 text-danger mb-4">500</h1>
         <div class="error-icon mb-4">
-            <i class="fas fa-search fa-4x text-secondary"></i>
+            <i class="fas fa-exclamation-triangle fa-4x text-warning"></i>
         </div>
-        <h2 class="mb-4">¡Oops! Página no encontrada</h2>
-        <p class="lead mb-5">Lo sentimos, pero la página que estás buscando no existe o ha sido movida.</p>
+        <h2 class="mb-4">¡Error del servidor!</h2>
+        <p class="lead mb-5">Lo sentimos, pero ha ocurrido un error interno. Nuestro equipo técnico ha sido notificado.</p>
         <div class="error-actions">
             <a href="/" class="btn btn-primary btn-lg me-3">
                 <i class="fas fa-home me-2"></i>Volver al inicio
             </a>
             <a href="/soporte/contacto/" class="btn btn-outline-light btn-lg">
-                <i class="fas fa-envelope me-2"></i>Contactar soporte
+                <i class="fas fa-envelope me-2"></i>Reportar problema
             </a>
         </div>
     </div>
@@ -36,13 +36,13 @@
     }
 
     .error-icon {
-        animation: float 3s ease-in-out infinite;
+        animation: pulse 2s ease-in-out infinite;
     }
 
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
 </style>
 {% endblock %}
