@@ -21,7 +21,10 @@ class ArtworkAdmin(admin.ModelAdmin):
     list_filter = ('category', 'artist', 'featured', 'created')
     search_fields = ('title', 'description')
     date_hierarchy = 'created'
-    autocomplete_fields = ('category', 'artist')
+    # Si prefieres ver un select con todas las opciones (en lugar de un campo de autocompletado
+    # que requiere escribir para buscar), comenta/elimna la línea de abajo. Hecho así se mostrará
+    # la lista completa de categorías y artistas en el formulario de creación/edición.
+    # autocomplete_fields = ('category', 'artist')
     list_editable = ('featured',)
     ordering = ('-created',)
 

@@ -3,7 +3,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-usa-una-clave-en-produccion'
-DEBUG = False  # Cambiamos a False para ver las páginas de error personalizadas
+DEBUG = True  # En desarrollo activamos DEBUG para servir media y ver mensajes de error
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Configuraciones de seguridad
