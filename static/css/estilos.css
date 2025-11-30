@@ -1,0 +1,156 @@
+
+    :root {
+      --primary-color: #0af;
+      --secondary-color: #6c757d;
+      --accent-color: #ffd700;
+      --dark-bg: #111;
+      --darker-bg: #0d0d0d;
+      --light-text: #eee;
+    }
+    
+    body { 
+      font-family: Inter, system-ui, sans-serif; 
+      background: var(--dark-bg); 
+      color: var(--light-text);
+      line-height: 0.8;
+    }
+
+    h1, h2, h3, h4, h5, h6 { 
+      font-family: Merriweather, serif;
+      margin-bottom: 1rem;
+    }
+
+    .banner { 
+      background: linear-gradient(135deg, #121212, #1f1f1f);
+      padding: 60px 0;
+      border-bottom: 1px solid #333;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    }
+
+    .footer { 
+      background: var(--darker-bg);
+      border-top: 1px solid #333;
+      color: #aaa;
+      padding: 40px 0;
+    }
+
+    .social a { 
+      color: var(--primary-color);
+      margin-right: 15px;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social a:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .navbar {
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+
+    .nav-link { 
+      color: #ccc;
+      position: relative;
+      padding: 0.5rem 1rem;
+      margin: 0 0.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover:after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-link.active, .nav-link:hover { 
+      color: #fff; 
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Gallery thumbnails: force a consistent height and crop via object-fit */
+    .card-img-top {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Card body tweaks to ensure text is readable and aligned */
+    .card .card-body {
+      padding: 1rem;
+      color: var(--light-text);
+    }
+
+    .card-title { margin-bottom: 0.5rem; }
+    .card-text { margin-bottom: 0.75rem; color: #ddd; }
+
+    /* Metadata badges used on artwork detail pages */
+    .meta-badge {
+      display: inline-block;
+      padding: 0.18rem 0.45rem;
+      border-radius: 0.35rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      vertical-align: middle;
+      margin-right: 0.25rem;
+    }
+
+    .category-badge {
+      background: var(--accent-color); /* gold */
+      color: #111; /* dark text for contrast on gold */
+      box-shadow: 0 2px 6px rgba(255,215,0,0.08) inset;
+    }
+
+    .artist-badge {
+      background: linear-gradient(90deg, var(--primary-color), #0077cc);
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #0095ff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,170,255,0.3);
+    }
+
+    /* Animaciones */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    }

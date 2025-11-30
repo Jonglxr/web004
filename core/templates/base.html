@@ -27,7 +27,7 @@
       font-family: Inter, system-ui, sans-serif; 
       background: var(--dark-bg); 
       color: var(--light-text);
-      line-height: 1.6;
+      line-height: 0.8;
     }
 
     h1, h2, h3, h4, h5, h6 { 
@@ -78,7 +78,7 @@
       content: '';
       position: absolute;
       width: 0;
-      height: 2px;
+      height: 1px;
       bottom: 0;
       left: 50%;
       background-color: var(--primary-color);
@@ -169,6 +169,48 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Inputs en tema oscuro */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+      background-color: #1a1a1a;   /* fondo oscuro */
+      color: var(--light-text);    /* texto claro */
+      border: 1px solid #333;      /* borde sutil */
+      border-radius: 5px;
+      padding: 0.6rem;
+      width: 100%;
+    }
+
+    /* Al enfocar (cuando el usuario hace clic) */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary-color); /* resalta con tu color principal */
+      box-shadow: 0 0 5px rgba(0,170,255,0.5);
+    }
+
+    /* Etiquetas de los formularios */
+    label {
+      color: var(--light-text);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--light-text); /* usa tu variable de texto claro */
+    }
+
+    .helptext {
+      color: #868585;       /* gris claro */
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+
   </style>
 </head>
 <body>

@@ -1,8 +1,39 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 from catalog.models import Artwork
 from django.core.cache import cache
 from django.conf import settings
+from .forms import RegistroAdminForm, RegistroVendedorForm
+from django.core.mail import send_mail
+from .forms import ContactForm
+
+def contacto(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            email = form.cleaned_data['email']
+            mensaje = form.cleaned_data['mensaje']
+
+            # Construir el mensaje
+            asunto = f"Nuevo mensaje de contacto de {nombre}"
+            cuerpo = f"Nombre: {nombre}\nEmail: {email}\n\nMensaje:\n{mensaje}"
+
+            # Enviar a Mailtrap
+            send_mail(
+                asunto,
+                cuerpo,
+                email,  # remitente
+                ["noreply@museodelanime.cl"],
+                fail_silently=False,
+            )
+
+            return render(request, "support/contacto_exitoso.html")
+    else:
+        form = ContactForm()
+
+    return render(request, "support/contacto.html", {"form": form})
+
 
 @require_http_methods(["GET"])
 def home(request):
@@ -81,3 +112,17 @@ def custom_404(request, exception):
 
 def custom_500(request):
     return render(request, '500.html', status=500)
+
+def registrar_admin(request):
+    form = RegistroAdminForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/admin/login/')
+    return render(request, 'core/registro_admin.html', {'form': form})
+
+def registrar_vendedor(request):
+    form = RegistroVendedorForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/admin/login/')
+    return render(request, 'core/registro_vendedor.html', {'form': form})

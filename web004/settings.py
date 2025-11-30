@@ -2,6 +2,14 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "sandbox.smtp.mailtrap.io"
+EMAIL_HOST_USER = "6cc18573dc057d"
+EMAIL_HOST_PASSWORD = "5d7227d2bcdf0d" 
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "noreply@museodelanime.cl"
+
 SECRET_KEY = 'django-insecure-usa-una-clave-en-produccion'
 DEBUG = True  # En desarrollo activamos DEBUG para servir media y ver mensajes de error
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
@@ -72,6 +80,7 @@ USE_TZ = True
 
 # Recurso estático: serviremos solo vía CDN en templates (no carpeta local requerida para CSS/JS).
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Media para ImageField (necesaria para subir imágenes)
 MEDIA_URL = '/media/'

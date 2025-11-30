@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Registro Vendedor{% endblock %}
+
+{% block content %}
+  <div class="card fade-in mx-auto" style="max-width:500px; padding:2rem;">
+    <h2 class="mb-3">Registro de Vendedor</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+    </form>
+  </div>
+{% endblock %}
+

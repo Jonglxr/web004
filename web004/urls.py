@@ -11,6 +11,8 @@ urlpatterns = [
     path('', include('core.urls')),
     path('galeria/', include('catalog.urls')),
     path('soporte/', include('support.urls')),
+    path('core/', include('core.urls')),
+
 ]
 
 if settings.DEBUG:
